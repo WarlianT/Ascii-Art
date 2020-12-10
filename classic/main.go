@@ -8,7 +8,7 @@ import (
 )
 func main() {
     if len(os.Args) == 1 {
-        fmt.Println("\nERROR: Please add an argument.")
+        fmt.Println("\nVeuillez entrer des caractères")
         return
     }
     s := os.Args[1]
@@ -23,25 +23,25 @@ func main() {
         }
         prev = v
     }
-    var result string
+    var resultat string
     if newLine == true {
         args := strings.Split(s, "\\n")
         for _, v := range args {
             for i := 0; i < 8; i++ {
-                for _, w := range v {
-                    result += GetLine(1 + int(w-32)*9 + i)
+                for _, x := range v {
+                    resultat += GetLine(1 + int(x-' ')*9+i)
                 }
-                fmt.Println(result)
-                result = ""
+                fmt.Println(resultat)
+                resultat = ""
             }
         }
     } else {
         for i := 0; i < 8; i++ {
-            for _, v := range s {
-                result += GetLine(1 + int(v-32)*9 + i)
+            for _, c := range s {
+                resultat += GetLine(1 + int(c-' ')*9+i)
             }
-            fmt.Println(result)
-            result = ""
+            fmt.Println(resultat)
+            resultat = ""
         }
     }
 }

@@ -40,7 +40,7 @@ func main() {
 	}
 	f, e := os.Create(filename)
 	if e != nil {
-		fmt.Println("Please, write the flag \"--output=\", followed by name of the file to create")
+		fmt.Println("merci d'écrire \"--output=\", suivi du nom de fichier que vous voulez en .txt")
 		os.Exit(0)
 	}
 	defer f.Close()
@@ -49,8 +49,8 @@ func main() {
 		args := strings.Split(str, "\\n")
 		for _, word := range args {
 			for i := 0; i < 8; i++ {
-				for _, letter := range word {
-					res += GetLine(template, 1+int(letter-' ')*9+i)
+				for _, x := range word {
+					res += GetLine(template, 1+int(x-' ')*9+i)
 				}
 				fmt.Fprintln(f, res)
 				res = ""
@@ -58,8 +58,8 @@ func main() {
 		}
 	} else {
 		for i := 0; i <8; i++ {
-			for _, letter := range str {
-				res += GetLine(template, 1+int(letter-' ')*9+i)
+			for _, x := range str {
+				res += GetLine(template, 1+int(x-' ')*9+i)
 			}
 			fmt.Fprintln(f, res)
 			res = ""
